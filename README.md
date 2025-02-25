@@ -54,6 +54,9 @@ After configuration of the server the next step would be to run the application.
 # installation of the dependencies
 $ npm install
 
+# migrate the prisma schema
+$ npm run db:migrate-save
+
 # generate the prisma client
 $ npm run prisma:generate
 ```

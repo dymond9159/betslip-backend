@@ -11,6 +11,7 @@ import { LoggerConfiguration } from "./logger.config";
         })
     ]
 })
+
 export class LoggerModule {
 
 }
