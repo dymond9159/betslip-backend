@@ -6,6 +6,7 @@ import { LoggerModule } from './modules/shared/logger/logger.module';
 import { PrismaModule } from './modules/shared/prisma/prisma.module';
 import { SecretsManagerModule } from './modules/common/providers/secrets/secretsManager.module';
 import { ServeStaticOptionsService } from './modules/common/providers/services/serveStaticOptions.service';
+import { HealthModule } from './modules/health/health.module';
 
 @Module({
   controllers: [],
@@ -17,6 +18,7 @@ import { ServeStaticOptionsService } from './modules/common/providers/services/s
     PrismaModule,
     SecretsManagerModule,
     LoggerModule,
+    HealthModule,
   ],
   providers: [],
 })
