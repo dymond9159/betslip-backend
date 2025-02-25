@@ -5,7 +5,7 @@
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
 [circleci-url]: https://circleci.com/gh/nestjs/nest
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
+  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">NestJs</a> framework for building efficient and scalable server-side applications.</p>
     <p align="center">
 <a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
 <a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
@@ -22,17 +22,43 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
-
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Installation
+# Introduction
+The server-side of the generated project. This component provides the different backend services - i.e., GraphQL API, authentication, authorization, logging, data validation and the connection to the database. Additional information about the server component and the architecture around it
 
-```bash
+## Getting started
+
+## Step 1: Configuration
+
+Configuration for the server component can be provided through the use of environment variables. These can be passed to the application via the use of the `.env` file in the base directory of the generated service. Below a table can be found which show the different variables that can be passed - these are the variables which exist by default, through the use of plugins additional integrations could require additional values. These values are provided default values after generation, change them to the desired values.
+
+| Variable             | Description                                  | Value                                                               |
+| -------------------- | -------------------------------------------- | ------------------------------------------------------------------- |
+| BCRYPT_SALT          | the string used for hashing                  | [random-string]                                                     |
+| COMPOSE_PROJECT_NAME | the identifier of the service plus prefix    | amp_[service-identifier]                                            |
+| PORT                 | the port on which to run the server          | 3000                                                                |
+| DB_URL               | the connection url for the database          | [db-provider]://[username]:[password]@localhost:[db-port]/[db-name] |
+| DB_PORT              | the port used by the database instance       | [db-provider-port]                                                  |
+| DB_USER              | the username used to connect to the database | [username]                                                          |
+| DB_PASSWORD          | the password used to connect to the database | [password]                                                          |
+| DB_NAME              | the name of the database                     | [service-name] / [project-name]                                     |
+| JWT_SECRET_KEY       | the secret used to sign the json-web token   | [secret]                                                            |
+| JWT_EXPIRATION       | the expiration time for the json-web token   | 2d                                                                  |
+
+## Step2: Scripts - pre-requisites
+
+After configuration of the server the next step would be to run the application. Before running the server side of the component, make sure that the different pre-requisites are met - i.e., node.js [^16.x], npm, docker. After the setup of the pre-requisites the server component can be started.
+
+```sh
+# installation of the dependencies
 $ npm install
+
+# generate the prisma client
+$ npm run prisma:generate
 ```
 
-## Running the app
+## Step3: Running the app
 
 ```bash
 # development
@@ -43,19 +69,6 @@ $ npm run start:dev
 
 # production mode
 $ npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
 ```
 
 ## Support
