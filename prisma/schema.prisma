@@ -8,26 +8,33 @@ generator client {
 }
 
 model User {
-  address   String?
-  bets      Bet[]
-  createdAt DateTime @default(now())
-  email     String?  @unique
-  firstName String?
   id        String   @id @default(cuid())
+  email     String   @unique
+  username  String   @unique
+  firstName String?
   lastName  String?
   password  String
+  role      Role?    @default(User)
+  address   String?
   photo     String?
-  roles     Json
+  bets      Bet[]
+  createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  username  String?  @unique
 }
 
 model Bet {
-  createdAt   DateTime @default(now())
-  currency    String?
   id          String   @id @default(cuid())
   outcomes    String?
-  updatedAt   DateTime @updatedAt
-  user        User[]
   wagerAmount Decimal?
+  currency    String?
+  userId      String?
+  user        User?    @relation(fields: [userId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+enum Role {
+  SuperAdmin
+  Admin
+  User
 }
