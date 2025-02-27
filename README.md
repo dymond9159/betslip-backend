@@ -25,6 +25,7 @@
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
 # Introduction
+
 The server-side of the generated project. This component provides the different backend services - i.e., GraphQL API, authentication, authorization, logging, data validation and the connection to the database. Additional information about the server component and the architecture around it
 
 ## Getting started
@@ -36,7 +37,7 @@ Configuration for the server component can be provided through the use of enviro
 | Variable             | Description                                  | Value                                                               |
 | -------------------- | -------------------------------------------- | ------------------------------------------------------------------- |
 | BCRYPT_SALT          | the string used for hashing                  | [random-string]                                                     |
-| COMPOSE_PROJECT_NAME | the identifier of the service plus prefix    | amp_[service-identifier]                                            |
+| COMPOSE_PROJECT_NAME | the identifier of the service plus prefix    | amp\_[service-identifier]                                           |
 | PORT                 | the port on which to run the server          | 3000                                                                |
 | DB_URL               | the connection url for the database          | [db-provider]://[username]:[password]@localhost:[db-port]/[db-name] |
 | DB_PORT              | the port used by the database instance       | [db-provider-port]                                                  |
